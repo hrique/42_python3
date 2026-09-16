@@ -12,10 +12,9 @@ def show_argv(arguments: list[str]) -> None:
         print(f"{total} {len(arguments)}")
         return
     else:
-        args = arguments[1:]
-        print(f"Arguments received: {len(args)}")
-        for i in range(len(args)):
-            print(f"Argument {i + 1}: {args[i]}")
+        print(f"Arguments received: {len(arguments) - 1}")
+        for i in range(1, len(arguments)):
+            print(f"Argument {i}: {arguments[i]}")
         print(f"{total} {len(arguments)}")
 
 
