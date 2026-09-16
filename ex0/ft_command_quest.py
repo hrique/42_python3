@@ -9,14 +9,14 @@ def show_argv(arguments: list[str]) -> None:
     print(f"Program name: {arguments[0]}")
     if len(arguments) == 1:
         print("No arguments provided!")
-        print(f"{total} {len(arguments)}")
+        print(f"{total} {len(arguments)}\n")
         return
     else:
-        print(f"Arguments received: {len(arguments) -1}")
-        for i in range(len(arguments)):
-            if i != 0:
-                print(f"Argument {i}: {arguments[i]}")
-        print(f"{total} {len(arguments)}")
+        args = arguments[1:]
+        print(f"Arguments received: {len(args)}")
+        for i in range(len(args)):
+            print(f"Argument {i + 1}: {args[i]}")
+        print(f"{total} {len(arguments)}\n")
 
 
 def main() -> None:
