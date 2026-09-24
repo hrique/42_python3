@@ -3,19 +3,19 @@
 import random
 
 
-def gen_player_achievements(achievements: set) -> set:
+def gen_player_achievements(achievements: set[str]) -> set[str]:
     number = random.randint(0, len(achievements))
     items = random.sample(list(achievements), number)
     return set(items)
 
 
 def main() -> None:
-    achievements = {'Crafting Genius', 'Strategist', 'World Savior', 
-                    'Speed Runner', 'Survivor', 'Master Explorer', 
-                    'Treasure Hunter', 'Unstoppable', 'First Steps', 
-                    'Collector Supreme', 'Untouchable', 'Sharp Mind', 
+    achievements = {'Crafting Genius', 'Strategist', 'World Savior',
+                    'Speed Runner', 'Survivor', 'Master Explorer',
+                    'Treasure Hunter', 'Unstoppable', 'First Steps',
+                    'Collector Supreme', 'Untouchable', 'Sharp Mind',
                     'Boss Slayer', 'Hidden Path Finder'}
-    print(f"=== Achievement Tracker System ===\n")
+    print("=== Achievement Tracker System ===\n")
     alice = gen_player_achievements(achievements)
     print(f"Player Alice: {alice}")
     bob = gen_player_achievements(achievements)
@@ -34,6 +34,7 @@ def main() -> None:
     print(f"Bob is missing: {achievements.difference(bob)}")
     print(f"Charlie is missing: {achievements.difference(charlie)}")
     print(f"Dylan is missing: {achievements.difference(dylan)}")
+
 
 if __name__ == "__main__":
     main()
