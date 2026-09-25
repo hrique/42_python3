@@ -43,6 +43,12 @@ def main() -> None:
             value_max = item
         if inventory[item] < inventory[value_min]:
             value_min = item
+    print(f"Item most abundant: {value_max} with "
+          f"quantity {inventory[value_max]}")
+    print(f"Item least abundant: {value_min} with "
+          f"quantity {inventory[value_min]}")
+    inventory.update({"magic_item": 1})
+    print(f"Updated inventory: {inventory}")
 
 
 if __name__ == "__main__":
