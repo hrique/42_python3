@@ -7,18 +7,22 @@ def init_inventory(args: list[str]) -> dict[str, int]:
     inventory = {}
     for arg in args:
         key_value = arg.split(":")
-        if len(key_value) != 2:
-            print(f"Error - invalid parameter '{key_value[0]}'")
+        if len(key_value) != 2 or key_value[0].strip() == "":
+            print(f"Error - invalid parameter '{arg}'")
             continue
         key, value = key_value
         if key in inventory:
-            print(f"Redundant item'{key_value[0]}' - discarding")
+            print(f"Redundant item '{key}' - discarding")
             continue
         try:
-            inventory[key] = int(value)
+            quantity = int(value)
         except ValueError as e:
             print(f"Quantity error for '{key}': {e}")
             continue
+        if quantity <= 0:
+            print(f"Quantity error for '{key}': quantity must be positive")
+            continue
+        inventory[key] = quantity
     return inventory
 
 
