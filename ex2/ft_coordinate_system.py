@@ -16,7 +16,7 @@ def get_player_pos() -> tuple[float, float, float]:
                 num = float(n)
                 if not math.isfinite(num):
                     raise ValueError("inf and nan are not permitted!")
-                float_num.append(float(n))
+                float_num.append(num)
             except ValueError as e:
                 print(f"Error on parameter '{n}': {e}")
                 break
