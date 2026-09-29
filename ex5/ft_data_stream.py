@@ -5,7 +5,8 @@ import random
 
 
 def gen_event() -> None:
-    ...
+    players = ['alice', 'bob', 'charlie', 'dylan']
+    events = ['move', 'grab', 'use', 'run', 'eat', 'sleep', 'swim', 'climb', 'release']
 
 
 def consume_event() -> None:
