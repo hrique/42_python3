@@ -13,10 +13,7 @@ def get_player_pos() -> tuple[float, float, float]:
             continue
         for n in splitted_in:
             try:
-                num = float(n)
-                if not math.isfinite(num):
-                    raise ValueError("inf and nan are not permitted!")
-                float_num.append(num)
+                float_num.append(float(n))
             except ValueError as e:
                 print(f"Error on parameter '{n}': {e}")
                 break
@@ -36,14 +33,18 @@ def get_distance(p1: tuple[float, float, float],
 def main() -> None:
     print("=== Game Coordinate System ===\n")
     print("Get a first set of coordinates")
-    p1 = get_player_pos()
-    print(f"Got a first tuple: {p1}")
-    print(f"It includes: X={p1[0]}, Y={p1[1]}, Z={p1[2]}")
-    print(f"Distance to center: {get_distance(p1)}\n")
-    print("Get a second set of coordinates")
-    p2 = get_player_pos()
-    print(f"Distance between the 2 sets of coordinates: "
-          f"{get_distance(p1, p2)}")
+    try:
+        p1 = get_player_pos()
+        print(f"Got a first tuple: {p1}")
+        print(f"It includes: X={p1[0]}, Y={p1[1]}, Z={p1[2]}")
+        print(f"Distance to center: {get_distance(p1)}\n")
+        print("Get a second set of coordinates")
+        p2 = get_player_pos()
+        print(f"Distance between the 2 sets of coordinates: "
+              f"{get_distance(p1, p2)}")
+    except EOFError:
+        print("\nCtrl + D, exiting")
+        return
 
 
 if __name__ == "__main__":
