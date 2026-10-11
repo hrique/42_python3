@@ -24,24 +24,24 @@ def filter_scores(scores: list[str]) -> None:
     num_scores = []
     err_msg = ("No scores provided. Usage: python3 ft_score_analytics.py "
                "<score1> <score2> ...")
-    if len(scores) == 1:
+    if len(scores) == 0:
         print(err_msg)
         return
-    for i in range(len(scores)):
+    for arg in scores:
         try:
-            num_scores.append(int(scores[i]))
+            num_scores.append(int(arg))
         except ValueError:
-            str_scores.append(scores[i])
-    if (len(num_scores) == 0):
-        for i in range(1, len(str_scores)):
-            print(f"Invalid parameter: '{str_scores[i]}'")
+            str_scores.append(arg)
+    for arg in str_scores:
+        print(f"Invalid parameter: '{arg}'")
+    if len(num_scores) != 0:
+        show_scores(num_scores)
+    else:
         print(err_msg)
-        return
-    show_scores(num_scores)
 
 
 def main() -> None:
-    filter_scores(sys.argv)
+    filter_scores(sys.argv[1:])
 
 
 if __name__ == "__main__":
