@@ -40,7 +40,7 @@ def main() -> None:
         print(f"Distance to center: {get_distance(p1)}\n")
         print("Get a second set of coordinates")
         p2 = get_player_pos()
-        print(f"Distance between the 2 sets of coordinates: "
+        print("Distance between the 2 sets of coordinates: "
               f"{get_distance(p1, p2)}")
     except EOFError:
         print("\nCtrl + D, exiting")
